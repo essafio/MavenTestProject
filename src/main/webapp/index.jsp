@@ -1,5 +1,5 @@
 <html>
 <body>
-<h2>Hello motherfucker!</h2>
+<h2>Hello my friend!</h2>
 </body>
 </html>
