@@ -6,24 +6,29 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <form action="">
-        <div class="container">
+    <head>
+        <title>Login</title>
+        <%@include file="head.jsp"%>
+    </head>
 
-            <label><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required><br>
+    <%@include file="menu.jsp"%>
 
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required><br>
+    <body>
+        <form action="">
+            <div class="container">
 
-            <div class="clearfix">
-                <button type="submit" class="">Sign In</button>
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required><br>
+
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+                <div class="clearfix">
+                    <button type="submit" class="">Sign In</button>
+                </div>
             </div>
-        </div>
-    </form>
-</body>
+        </form>
+    </body>
 </html>
