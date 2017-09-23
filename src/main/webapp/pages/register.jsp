@@ -15,8 +15,9 @@
     <%@include file="menu.jsp"%>
 
     <body>
-        <form action="">
-            <div class="container">
+        <div class="container">
+            <form method="post" action="/home">
+
                 <label><b>First Name</b></label>
                 <input type="text" placeholder="First Name" name="fname" required><br>
 
@@ -38,7 +39,7 @@
                     <button type="reset"  class="cancelbtn">Cancel</button>
                     <button type="submit" class="signupbtn">Sign Up</button>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </body>
 </html>

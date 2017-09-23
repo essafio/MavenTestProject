@@ -5,6 +5,7 @@
   Time: 12:20
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <header>
     <nav class="navbar navbar-inverse navbar-static-top">
@@ -17,7 +18,7 @@
                 </button>
                 <a href="#" class="navbar-brand">Welcome</a>
                 <a style="color: lightseagreen" href="#" class="navbar-brand">
-                        ${clientConnecte.nom} ${clientConnecte.prenom}
+                        ${client.fname} ${client.lname}
                 </a>
             </div>
             <div id="navbarCollapse" class="collapse navbar-collapse">
