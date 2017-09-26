@@ -7,7 +7,7 @@
 --%>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<link href="../bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
-<script src="../bootstrap/js/bootstrap.js"></script>
-<script src="../bootstrap/js/bootstrap.min.js "></script>
+<link href="../bootstrap4/css/bootstrap.css" rel="stylesheet" type="text/css">
+<script src="../bootstrap4/js/bootstrap.js"></script>
+<script src="../bootstrap4/js/bootstrap.min.js "></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

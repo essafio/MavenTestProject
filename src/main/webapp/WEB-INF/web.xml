@@ -9,14 +9,16 @@
          version="3.1">
 
     <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
-        <servlet-class>com.servlets.MyServlet</servlet-class>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.servlets.RegisterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
 
 </web-app>

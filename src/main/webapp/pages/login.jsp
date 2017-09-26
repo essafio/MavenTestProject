@@ -16,19 +16,21 @@
     <%@include file="menu.jsp"%>
 
     <body>
-        <form action="">
-            <div class="container">
+        <div class="container">
+            <br/><h2 class="offset-4 col-4 h2">Please login</h2><br/>
 
-                <label><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required><br>
-
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required><br>
-
-                <div class="clearfix">
-                    <button type="submit" class="">Sign In</button>
+            <form method="post" action="/login">
+                <div class="col-4 offset-4">
+                    <input class="form-control" type="text" placeholder="Username" name="username" required><br/>
                 </div>
-            </div>
-        </form>
+
+                <div class="col-4 offset-4">
+                    <input class="form-control" type="password" placeholder="Password" name="psw" required><br/>
+                </div>
+
+                <button type="reset" class="offset-5 col-2 btn btn-success">Sign in</button>
+            </form>
+        </div>
     </body>
+
 </html>
