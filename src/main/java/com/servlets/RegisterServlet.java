@@ -32,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
         user.setUsername(username);
         user.setPassword(password);
 
-        userController.addUser(user);
+        //userController.addUser(user);
 
         this.getServletContext().getRequestDispatcher("/pages/register.jsp").forward(request, response);
     }

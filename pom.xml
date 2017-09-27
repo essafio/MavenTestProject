@@ -8,12 +8,12 @@
       <name>MavenTestProject Maven Webapp</name>
       <url>http://maven.apache.org</url>
       <dependencies>
-            <dependency>
+          <dependency>
               <groupId>junit</groupId>
               <artifactId>junit</artifactId>
-              <version>3.8.1</version>
+              <version>4.12</version>
               <scope>test</scope>
-            </dependency>
+          </dependency>
 
           <dependency>
               <groupId>javax.servlet</groupId>
@@ -35,15 +35,39 @@
           </dependency>
 
           <dependency>
-              <groupId>log4j</groupId>
-              <artifactId>log4j</artifactId>
-              <version>1.2.17</version>
+              <groupId>org.slf4j</groupId>
+              <artifactId>slf4j-api</artifactId>
+              <version>1.7.21</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.apache.logging.log4j</groupId>
+              <artifactId>log4j-slf4j-impl</artifactId>
+              <version>2.7</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.apache.logging.log4j</groupId>
+              <artifactId>log4j-core</artifactId>
+              <version>2.7</version>
           </dependency>
 
           <dependency>
               <groupId>org.hibernate</groupId>
               <artifactId>hibernate-core</artifactId>
               <version>4.3.11.Final</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.glassfish.jersey.core</groupId>
+              <artifactId>jersey-server</artifactId>
+              <version>2.17</version>
+          </dependency>
+
+          <dependency>
+              <groupId>org.glassfish.jersey.containers</groupId>
+              <artifactId>jersey-container-servlet-core</artifactId>
+              <version>2.17</version>
           </dependency>
 
       </dependencies>

@@ -16,8 +16,8 @@
         <div id="navbarText" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"> <a class="nav-link" href="home.jsp"> Home </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="login.jsp">Login  </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="register.jsp">Register  </a> </li>
+                <li class="nav-item"> <a class="nav-link" href="/login">Login  </a> </li>
+                <li class="nav-item"> <a class="nav-link" href="/register">Register  </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#">Logout  </a></li>
             </ul>
         </div>
