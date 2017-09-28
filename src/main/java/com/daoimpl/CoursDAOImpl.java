@@ -8,15 +8,15 @@ public class CoursDAOImpl implements com.dao.CoursDAO {
 
     private static CoursDAOImpl uniqueInstance = new CoursDAOImpl();
 
-    private Session session = Factory.getConnexionHibernate().getSession();
+    //private Session sessionFactory = Factory.getConnexionHibernate().getSessionFactory();
 
     public static CoursDAOImpl getInstance() {
         return uniqueInstance;
     }
 
     public void addCours(Cours cours){
-        session.beginTransaction();
+        /*session.beginTransaction();
         session.save(cours);
-        session.getTransaction().commit();
+        session.getTransaction().commit();*/
     }
 }

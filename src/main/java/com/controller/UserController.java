@@ -6,20 +6,45 @@ import com.factory.Factory;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/users")
 public class UserController {
 
-    UserDAO userDAO = Factory.getUserDAO();
+    private UserDAO userDAO = Factory.getUserDAO();
 
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String addUser(){
-        return "Add user";
-        //userDAO.addUser(user);
-
+    @Path("/{idUser}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public User getUser(@PathParam("idUser") Long id){
+        return userDAO.getUser(id);
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<User> getUsers(){
+        return userDAO.getUsers();
+    }
 
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public User addUser(User user){
+        return userDAO.addUser(user);
+    }
+
+    @DELETE
+    @Path("/{idUser}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteUser(@PathParam("idUser") Long id){
+        userDAO.deleteUser(id);
+    }
+
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public User updateUser(User user){
+        return userDAO.updateUser(user);
+    }
 
 }
