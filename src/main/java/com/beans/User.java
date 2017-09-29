@@ -1,6 +1,7 @@
 package com.beans;
 
 import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Table(name = "USER")
@@ -8,6 +9,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_user")
     private Long id;
 
     private String fname;
@@ -19,6 +21,16 @@ public class User {
     private String username;
 
     private String password;
+
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "user_cours",
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_cours")
+    )
+    private Set<Cours> cours = new HashSet<Cours>();
 
     public User() {
     }

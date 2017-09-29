@@ -1,5 +1,7 @@
 package com.beans;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,11 +10,15 @@ public class Cours {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_cours")
     private Long id;
 
     private String name;
 
     private Integer credits;
+
+    @ManyToMany(mappedBy = "cours")
+    private Set<User> users = new HashSet<User>();
 
     public Cours() {
     }
