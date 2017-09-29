@@ -9,14 +9,29 @@
          version="3.1">
 
     <display-name>Archetype Created Web Application</display-name>
+
     <servlet>
-        <servlet-name>MyServlet</servlet-name>
-        <servlet-class>com.servlets.MyServlet</servlet-class>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.servlets.RegisterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MyServlet</servlet-name>
-        <url-pattern>/home</url-pattern>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>jersey.config.server.provider.packages</param-name>
+            <param-value>com.controller</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Jersey Web Application</servlet-name>
+        <url-pattern>/monapp/*</url-pattern>
+    </servlet-mapping>
+
 
 </web-app>
