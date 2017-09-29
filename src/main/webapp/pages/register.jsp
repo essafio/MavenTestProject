@@ -17,7 +17,7 @@
     <body>
         <div class="container">
             <br/><h2 class="offset-2 h2">Please enter your information</h2><br/>
-            <form method="post" action="/monapp/users">
+            <form method="POST" action="/monapp/users">
                 <div class="form-group row">
                     <label class="col-2 offset-2 col-form-label"><b>First Name</b></label>
                     <div class="col-6">
