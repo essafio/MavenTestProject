@@ -49,7 +49,7 @@
                 <div class="form-group row">
                     <label class="col-2 offset-2 col-form-label"><b>Password</b></label>
                     <div class="col-6">
-                        <input class="form-control" type="password" placeholder="Enter Password" name="psw" required>
+                        <input class="form-control" type="password" placeholder="Enter Password" name="password" required>
                     </div>
                 </div>
 
@@ -70,8 +70,8 @@
                         </div>
                     </div>
                 </div>
-                <button type="reset"  class="offset-2 col-4 btn btn-primary btn-lg">Cancel</button>
-                <button type="submit" class="col-4 btn btn-success btn-lg">Sign Up</button>
+                <button type="reset"  class="offset-2 col-4 btn btn-primary btn-md">Cancel</button>
+                <button type="submit" class="col-4 btn btn-success btn-md">Sign Up</button>
             </form>
         </div>
     </body>

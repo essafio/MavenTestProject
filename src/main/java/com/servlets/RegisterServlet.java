@@ -23,7 +23,7 @@ public class RegisterServlet extends HttpServlet {
         String lname = request.getParameter("lname");
         String email = request.getParameter("email");
         String username = request.getParameter("username");
-        String password = request.getParameter("psw");
+        String password = request.getParameter("password");
 
         User user = new User();
         user.setFname(fname);

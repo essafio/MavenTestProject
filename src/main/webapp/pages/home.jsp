@@ -16,13 +16,13 @@
     <%@include file="menu.jsp"%>
 
     <body>
-        <div class="container">
+        <div class="container"><br/>
             <div class="jumbotron">
-                <h1>Welcome to our web application!</h1>
-                <div class="col-md-6 col-md-offset-3">
-                    <p class="col-md-3" ><a class="btn btn-success btn-lg" href="login.jsp" role="button">Sign in</a></p>
-                    <p class="col-md-3" ><a class="btn btn-primary btn-lg" href="register.jsp" role="button">Sign up</a></p>
-                </div>
+                <br/><h1 class="offset-2 h1">Welcome to our web application!</h1><br/>
+                <span class="offset-2">
+                    <a class="col-4 btn btn-success btn-md" href="login.jsp" role="button">Sign in</a>
+                    <a class="col-4 btn btn-primary btn-md" href="register.jsp" role="button">Sign up</a>
+                </span>
             </div>
         </div>
     </body>
