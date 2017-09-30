@@ -7,6 +7,7 @@
 --%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page session="true" %>
 
 <html>
 <head>
@@ -19,11 +20,11 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="#" class="navbar-brand">Welcome</a>
+        <a href="/pages/myProfile.jsp" class="navbar-brand">Welcome <span class="text-success"> ${sessionScope.user.fname} ${sessionScope.user.lname}</span> </a>
         <div id="navbarText" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"> <a class="nav-link" href="home.jsp"> Home </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/login">Login  </a> </li>
+                <li class="nav-item"> <a class="nav-link" href="/monapp/users/login">Login  </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/register">Register  </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="#">Logout  </a></li>
             </ul>

@@ -9,18 +9,19 @@
 <html>
     <body>
         <div class="container">
+            <br/><h2 class="offset-4 col-4 h2 text-success">${it.msg}</h2><br/>
             <br/><h2 class="offset-4 col-4 h2">Please login</h2><br/>
 
-            <form method="post" action="/login">
+            <form method="POST" action="/monapp/users/login">
                 <div class="col-4 offset-4">
-                    <input class="form-control" type="text" placeholder="Username" name="username" required><br/>
+                    <input class="form-control" type="text" placeholder="Username" name="username" value="${it.user.username}" required><br/>
                 </div>
 
                 <div class="col-4 offset-4">
-                    <input class="form-control" type="password" placeholder="Password" name="psw" required><br/>
+                    <input class="form-control" type="password" placeholder="Password" name="password" required><br/>
                 </div>
 
-                <button type="reset" class="offset-5 col-2 btn btn-success">Sign in</button>
+                <button type="submit" class="offset-5 col-2 btn btn-success">Sign in</button>
             </form>
         </div>
     </body>

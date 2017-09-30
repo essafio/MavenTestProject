@@ -34,6 +34,21 @@ public class UserDAOImpl implements com.dao.UserDAO {
         return user;
     }
 
+
+    public User getUserByLogin(String username, String password) {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+
+        Query query = session.createQuery("from User u where username = :username and password = :password");
+        query.setParameter("username", username);
+        query.setParameter("password", password);
+        List listResult = query.list();
+
+        User user = (User) listResult.get(0);
+
+        return user;
+    }
+
     public User getUser(Long id){
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
@@ -52,5 +67,6 @@ public class UserDAOImpl implements com.dao.UserDAO {
         session.delete(session.load(User.class, id));
         session.getTransaction().commit();
     }
+
 
 }

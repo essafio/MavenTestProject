@@ -9,7 +9,7 @@
 <html>
     <body>
         <div class="container">
-            <h2 class="offset-4 col-4">All users</h2>
+            <br/><h2 class="offset-4 col-4">All users</h2><br/>
             <div class="table-responsive">
                 <table border='1' class="table table-hover table-bordered">
                     <tr class="warning">
