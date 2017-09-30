@@ -31,7 +31,7 @@ public class UserController {
         Map<String, Object> model = new HashMap<>();
         List<User> users = userDAO.getUsers();
         model.put("users", users);
-        return new Viewable("/pages/home.jsp", model);
+        return new Viewable("/pages/allUsers.jsp", model);
     }
 
     @POST

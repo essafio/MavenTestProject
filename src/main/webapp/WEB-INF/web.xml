@@ -39,4 +39,11 @@
     </servlet-mapping>
 
 
+    <jsp-config>
+        <jsp-property-group>
+            <url-pattern>/pages/*</url-pattern>
+            <include-prelude>/pages/header.jsp</include-prelude>
+        </jsp-property-group>
+    </jsp-config>
+
 </web-app>
