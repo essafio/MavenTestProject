@@ -105,6 +105,14 @@ public class UserController {
         return new Viewable("/pages/login.jsp");
     }
 
+    @GET
+    @Path("/logout")
+    @Produces(MediaType.TEXT_HTML)
+    public Viewable logout(@Context HttpServletRequest request){
+        request.getSession().invalidate();
+        return new Viewable("/pages/home.jsp");
+    }
+
     @DELETE
     @Path("/{idUser}")
     public void deleteUser(@PathParam("idUser") Long id){

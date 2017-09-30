@@ -20,13 +20,13 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a href="/pages/myProfile.jsp" class="navbar-brand">Welcome <span class="text-success"> ${sessionScope.user.fname} ${sessionScope.user.lname}</span> </a>
+        <a href="/pages/home.jsp" class="navbar-brand">Welcome <span class="text-success"> ${sessionScope.user.fname} ${sessionScope.user.lname}</span> </a>
         <div id="navbarText" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"> <a class="nav-link" href="home.jsp"> Home </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/monapp/users/login">Login  </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/register">Register  </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">Logout  </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/monapp/users/logout">Logout  </a></li>
             </ul>
         </div>
     </nav>
