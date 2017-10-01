@@ -12,7 +12,7 @@
             <br/><h2 class="offset-4 col-4 h2 text-success">${it.msg}</h2><br/>
             <br/><h2 class="offset-4 col-4 h2">Please login</h2><br/>
 
-            <form method="POST" action="/monapp/users/login">
+            <form method="POST" action="/monapp/login">
                 <div class="col-4 offset-4">
                     <input class="form-control" type="text" placeholder="Username" name="username" value="${it.user.username}" required><br/>
                 </div>

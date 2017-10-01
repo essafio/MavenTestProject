@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Path("/users")
+@Path("/")
 public class UserController {
 
     private UserDAO userDAO = Factory.getUserDAO();
@@ -26,7 +26,7 @@ public class UserController {
     }*/
 
     @GET
-    @Path("/{idUser}")
+    @Path("users/{idUser}")
     @Produces(MediaType.TEXT_HTML)
     public Viewable getUser(@PathParam("idUser") Long id){
 
@@ -37,6 +37,7 @@ public class UserController {
     }
 
     @GET
+    @Path("users")
     @Produces(MediaType.TEXT_HTML)
     public Viewable getUsers(){
         //return Response.temporaryRedirect(URI.create("/pages/register.jsp")).build();
@@ -54,7 +55,15 @@ public class UserController {
         return userDAO.addUser(user);
     }*/
 
+    @GET
+    @Path("register")
+    @Produces(MediaType.TEXT_HTML)
+    public Viewable register(){
+        return new Viewable("/pages/register.jsp");
+    }
+
     @POST
+    @Path("users")
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Viewable addUser(@FormParam("fname") String fname,
@@ -78,7 +87,7 @@ public class UserController {
     }
 
     @POST
-    @Path("/login")
+    @Path("login")
     @Produces(MediaType.TEXT_HTML)
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Viewable getUserByLogin(@Context HttpServletRequest request,
@@ -99,14 +108,14 @@ public class UserController {
     }
 
     @GET
-    @Path("/login")
+    @Path("login")
     @Produces(MediaType.TEXT_HTML)
     public Viewable login(){
         return new Viewable("/pages/login.jsp");
     }
 
     @GET
-    @Path("/logout")
+    @Path("logout")
     @Produces(MediaType.TEXT_HTML)
     public Viewable logout(@Context HttpServletRequest request){
         request.getSession().invalidate();
@@ -114,12 +123,13 @@ public class UserController {
     }
 
     @DELETE
-    @Path("/{idUser}")
+    @Path("users/{idUser}")
     public void deleteUser(@PathParam("idUser") Long id){
         userDAO.deleteUser(id);
     }
 
     @PUT
+    @Path("users")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public User updateUser(User user){
