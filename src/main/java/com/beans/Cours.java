@@ -18,7 +18,7 @@ public class Cours {
     private Integer credits;
 
     @ManyToMany(mappedBy = "cours")
-    private Set<User> users = new HashSet<User>();
+    private List<User> users = new ArrayList<User>();
 
     public Cours() {
     }

@@ -30,7 +30,7 @@ public class User {
             joinColumns = @JoinColumn(name = "id_user"),
             inverseJoinColumns = @JoinColumn(name = "id_cours")
     )
-    private Set<Cours> cours = new HashSet<Cours>();
+    private List<Cours> cours = new ArrayList<Cours>();
 
     public User() {
     }
