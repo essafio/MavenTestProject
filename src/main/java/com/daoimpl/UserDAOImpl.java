@@ -23,6 +23,7 @@ public class UserDAOImpl implements com.dao.UserDAO {
         session.beginTransaction();
         session.save(user);
         session.getTransaction().commit();
+
         return user;
     }
 
