@@ -26,6 +26,7 @@
                 <li class="nav-item"> <a class="nav-link" href="/"> Home </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/monapp/login">Login  </a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/monapp/register">Register  </a> </li>
+                <li class="nav-item"> <a class="nav-link" href="/monapp/courseRegister">Course registration</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/monapp/logout">Logout  </a></li>
             </ul>
         </div>
