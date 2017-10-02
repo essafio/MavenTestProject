@@ -71,6 +71,7 @@ $(document).ready(function() {
         }
     })
     .on('success.form.bv', function(e) {
+        $('#error_message').slideDown({ opacity: "hide" }, "slow");
         $('#success_message').slideDown({ opacity: "show" }, "slow");
     });
 });

@@ -9,14 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Path("/")
 public class UserController {
 
     private UserDAO userDAO = Factory.getUserDAO();
+    private final String SALT = "ENCRYPTED";
 
     /*@GET
     @Path("/{idUser}")
@@ -74,6 +80,25 @@ public class UserController {
                         @FormParam("username") String username,
                         @FormParam("password") String password){
 
+        Map<String, Object> model = new HashMap<>();
+
+        fname = fname.substring(0, 1).toUpperCase() + fname.substring(1);
+        lname = lname.substring(0, 1).toUpperCase() + lname.substring(1);
+
+        if (null != email) {
+            String regex = "^([_a-zA-Z0-9-]+(\\.[_a-zA-Z0-9-]+)*@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*(\\.[a-zA-Z]{1,6}))?$";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(email);
+            if (!matcher.matches()) {
+                model.put("errormsg", "Invalid email address");
+                return new Viewable("/pages/register.jsp", model);
+            }
+        }
+
+        //Username should be checked against db
+
+        password = get_SHA_512_SecurePassword(password, SALT);
+
         User user = new User();
         user.setLname(lname);
         user.setFname(fname);
@@ -81,7 +106,7 @@ public class UserController {
         user.setUsername(username);
         user.setPassword(password);
 
-        Map<String, Object> model = new HashMap<>();
+
         model.put("user", userDAO.addUser(user));
         model.put("msg", "Registration successful");    //var msg should be adapted to the result of addUser()
 
@@ -96,6 +121,7 @@ public class UserController {
                                    @FormParam("username") String username,
                                    @FormParam("password") String password){
 
+        password = get_SHA_512_SecurePassword(password, SALT);
         User user = userDAO.getUserByLogin(username, password); //getting the user using login info
 
         //Initiating the session var
@@ -136,6 +162,27 @@ public class UserController {
     @Consumes(MediaType.APPLICATION_JSON)
     public User updateUser(User user){
         return userDAO.updateUser(user);
+    }
+
+
+    public String get_SHA_512_SecurePassword(String passwordToHash, String   salt){
+        String generatedPassword = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            md.update(salt.getBytes("UTF-8"));
+            byte[] bytes = md.digest(passwordToHash.getBytes("UTF-8"));
+            StringBuilder sb = new StringBuilder();
+            for(int i=0; i< bytes.length ;i++){
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+            generatedPassword = sb.toString();
+        }
+        catch (NoSuchAlgorithmException e){
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return generatedPassword;
     }
 
 }
