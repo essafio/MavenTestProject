@@ -49,9 +49,11 @@ public class UserController {
     }
 
     /*@POST
+    @Path("users")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public User addUser(User user){
+        System.out.println("here !!!");
         return userDAO.addUser(user);
     }*/
 

@@ -13,7 +13,7 @@
                 <c:forEach items="${it.users}" var="user">
                     ${user.fname}<br>
                 </c:forEach>
-                <br/><h1 class="offset-2 h1">Welcome to our web application! ${it.name}</h1><br/>
+                <br/><h2 class="offset-2 h2">Welcome to our web application! ${it.name}</h2><br/>
                 <span class="offset-2">
                     <a class="col-4 btn btn-success btn-md" href="/monapp/login" role="button">Sign in</a>
                     <a class="col-4 btn btn-primary btn-md" href="/monapp/register" role="button">Sign up</a>
