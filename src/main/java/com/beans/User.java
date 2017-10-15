@@ -1,17 +1,20 @@
 package com.beans;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.*;
 
 @Entity
 @Table(name = "USER")
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id_user")
     private Long id;
 
+    @NotNull
     private String fname;
 
     private String lname;

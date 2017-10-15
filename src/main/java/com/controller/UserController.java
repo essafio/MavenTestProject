@@ -5,6 +5,8 @@ import com.dao.UserDAO;
 import com.factory.Factory;
 import org.glassfish.jersey.server.mvc.Viewable;
 
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.*;
@@ -19,6 +21,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Path("/")
+@PermitAll
 public class UserController {
 
     private UserDAO userDAO = Factory.getUserDAO();
@@ -33,25 +36,32 @@ public class UserController {
 
     @GET
     @Path("users/{idUser}")
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable getUser(@PathParam("idUser") Long id){
+    @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed("admin")
+    public Response getUser(@PathParam("idUser") Long id){
 
-        Map<String, Object> model = new HashMap<>();
-        model.put("user", userDAO.getUser(id));
+        //Map<String, Object> model = new HashMap<>();
+        //model.put("user", userDAO.getUser(id));
 
-        return new Viewable("/pages/myProfile.jsp", model);
+        return Response.status(Response.Status.OK).entity(userDAO.getUser(id)).build();
     }
 
     @GET
     @Path("users")
-    @Produces(MediaType.TEXT_HTML)
-    public Viewable getUsers(){
-        //return Response.temporaryRedirect(URI.create("/pages/register.jsp")).build();
-        Map<String, Object> model = new HashMap<>();
-        List<User> users = userDAO.getUsers();
-        model.put("users", users);
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsers(){
 
-        return new Viewable("/pages/allUsers.jsp", model);
+        /*Map<String, Object> model = new HashMap<>();
+        List<User> users = userDAO.getUsers();
+        model.put("users", users);*/
+
+        List<User> users = userDAO.getUsers();
+        GenericEntity<List<User>> entity = new GenericEntity<List<User>>(users) {};
+        return Response.status(Response.Status.OK).entity(entity).build();
+
+        //return userDAO.getUsers();
+
+        //return new Viewable("/pages/allUsers.jsp", model);
     }
 
     /*@POST
@@ -66,6 +76,7 @@ public class UserController {
     @GET
     @Path("register")
     @Produces(MediaType.TEXT_HTML)
+    @RolesAllowed("admin")
     public Viewable register(){
         return new Viewable("/pages/register.jsp");
     }
@@ -105,7 +116,6 @@ public class UserController {
         user.setEmail(email);
         user.setUsername(username);
         user.setPassword(password);
-
 
         model.put("user", userDAO.addUser(user));
         model.put("msg", "Registration successful");    //var msg should be adapted to the result of addUser()

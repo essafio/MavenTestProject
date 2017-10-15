@@ -10,6 +10,7 @@
 <body>
 <div class="container">
     <br/><h2 class="offset-4 col-4">Please choose courses</h2><br/>
+    <form action="#" method="POST">
     <div class="table-responsive">
         <table border='1' class="table table-hover table-bordered">
 
@@ -40,9 +41,11 @@
 
             </c:forEach>
 
-
         </table>
     </div>
+        <input name="register" type="submit" class="col-2 offset-10 btn btn-success btn-md" value="Register" disabled />
+    </form>
 </div>
+
 </body>
 </html>

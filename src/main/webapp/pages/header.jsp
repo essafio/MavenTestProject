@@ -24,10 +24,15 @@
         <div id="navbarText" class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item"> <a class="nav-link" href="/"> Home </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/monapp/login">Login  </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/monapp/register">Register  </a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/monapp/courseRegister">Course registration</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/monapp/logout">Logout  </a></li>
+                <c:if test="${empty sessionScope.user.fname}">
+                    <li class="nav-item"> <a class="nav-link" href="/monapp/login">Login  </a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/monapp/register">Register  </a> </li>
+                </c:if>
+                <c:if test="${not empty sessionScope.user.fname}">
+                    <li class="nav-item"> <a class="nav-link" href="/monapp/courseRegister">Course registration</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/monapp/users">All users</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="/monapp/logout">Logout  </a></li>
+                </c:if>
             </ul>
         </div>
     </nav>
