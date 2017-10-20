@@ -56,7 +56,7 @@ public class UserDAOImpl implements com.dao.UserDAO {
 
 
     public User getUserByLogin(String username, String password) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         Transaction transaction = null;
         User user = null;
 
@@ -73,8 +73,6 @@ public class UserDAOImpl implements com.dao.UserDAO {
         } catch (HibernateException e) {
             transaction.rollback();
             e.printStackTrace();
-        } finally {
-            session.close();
         }
 
         return user;

@@ -35,13 +35,23 @@
             <param-name>jersey.config.server.provider.classnames</param-name>
             <param-value>org.glassfish.jersey.server.mvc.jsp.JspMvcFeature</param-value>
         </init-param>
+
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.config.MyApplication</param-value>
+        </init-param>
+
         <load-on-startup>1</load-on-startup>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Jersey Web Application</servlet-name>
         <url-pattern>/monapp/*</url-pattern>
     </servlet-mapping>
 
+    <login-config>
+        <auth-method>BASIC</auth-method>
+    </login-config>
 
     <jsp-config>
         <jsp-property-group>
